@@ -1,0 +1,27 @@
+Since this repository tends to be something we don't touch for long
+stretches of a time before coming back to, here's some tips on common
+operations you probably want.
+
+### ADDING A NEW EMACS PACKAGE #########
+
+Add it to the list of packages in `emacs-raw.nix'.
+
+If you're not sure whether the package exists in Nix, you can poke around
+in the list of Emacs packages in the REPL:
+
+  $ nix repl
+
+  > sources = import ./nix/sources.nix {}
+  > pkgs = import sources.nixpkgs {}
+  > pkgs.emacs27Packages  # or whatever version you have
+  > builtins.filter (name: name == "purescript-mode")
+  >   (builtins.attrNames pkgs.emacs27Packages)
+
+You may need to then add some configuration for your package in `emacs.d/'.
+
+### UPDATING THE CONFIGURATION #########
+
+Do whatever Emacs Lisp-y stuff you need to do inside `emacs.d/'.
+
+If your changes also need some sort of dependency in the Nix store,
+modify `emacs-config.nix' to do a substitution.

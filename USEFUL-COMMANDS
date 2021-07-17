@@ -1,0 +1,36 @@
+Commands that I've found useful, but don't use often enough to
+remember.
+
+Name                            Default binding
+-----------------------------------------------
+
+repeat-complex-command          C-x M-ESC || C-x ESC ESC
+repeat                          C-x z
+
+shell-command                   M-!
+async-shell-command             M-&
+shell-command-on-region         M-|
+
+indent-rigidly                  C-x TAB
+
+info-apropos
+
+sort-lines
+sort-fields
+sort-numeric-fields
+sort-regexp-fields
+reverse-region
+
+tabify
+untabify
+
+enlarge-window                          C-x ^
+enlarge-window-horizontally             C-x }
+shrink-window-horizontally              C-x {
+shrink-window-if-larger-than-buffer     C-x -
+balance-windows                         C-x +
+
+narrow-to-defun                         C-x n d
+narrow-to-region                        C-x n n
+narrow-to-page                          C-x n p
+widen                                   C-x n w
