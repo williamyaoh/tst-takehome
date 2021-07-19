@@ -5,6 +5,9 @@
 ;;;; Keybindings
 (load-library "@out@/keybindings.el")
 
+;;;; Enabling commands
+(load-library "@out@/disabled-commands.el")
+
 ;;;; Programming hooks
 (defun programming-customization ()
   "Called when entering a programming mode. General programming packages

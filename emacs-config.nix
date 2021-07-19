@@ -1,7 +1,7 @@
 # In case the configuration needs to substitute a dependency, we
 # pass in the whole Nixpkgs value.
 
-{ pkgs, version }:
+{ pkgs, version, gitignoreSource }:
 
 with pkgs;
 
@@ -10,7 +10,7 @@ stdenv.mkDerivation {
 
   name = "emacs-config-${version}";
 
-  src = ./emacs.d;
+  src = gitignoreSource ./emacs.d;
 
   buildPhase = ''
     for elisp in $(find . -type f -name '*.el' -print); do

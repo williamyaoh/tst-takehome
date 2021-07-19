@@ -4,7 +4,10 @@ let
   sources = import ./nix/sources.nix {};
 
   nixpkgs = import sources.nixpkgs {};
+  gitignore-src = import sources.gitignore-src {};
 in
+
+with gitignore-src;
 
 rec {
   emacs-raw = import ./emacs-raw.nix {
@@ -12,7 +15,7 @@ rec {
   };
 
   emacs-config = import ./emacs-config.nix {
-    inherit version;
+    inherit version gitignoreSource;
     pkgs = nixpkgs;
   };
 
@@ -20,7 +23,7 @@ rec {
     inherit version;
 
     name = "emacs-packaged-${version}";
-    src = ./.;  # doesn't really matter, but forces a hash change
+    src = gitignoreSource ./.;  # doesn't really matter, but forces a hash change
 
     buildInputs = [
       nixpkgs.makeWrapper
