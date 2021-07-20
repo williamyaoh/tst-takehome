@@ -140,7 +140,12 @@
   :config
   (setq tramp-default-method "ssh"))
 
-(use-package magit)
+(use-package magit
+  :config
+  ;; It may seem strange to add our Nix-pinned Git to the PATH instead of
+  ;; setting Magit to use the executable directly. But doing it this way
+  ;; allows Magit to work if we use TRAMP to SSH into another machine as well.
+  (setq exec-path (cons "@git@/bin" exec-path)))
 
 (use-package discover
   :config

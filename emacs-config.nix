@@ -20,7 +20,8 @@ stdenv.mkDerivation {
     done
 
     substituteInPlace packages.el \
-      --subst-var-by sbcl ${pkgs.sbcl} 
+      --subst-var-by sbcl ${pkgs.sbcl} \
+      --subst-var-by git ${pkgs.git}
   '';
 
   installPhase = ''
