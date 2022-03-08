@@ -65,7 +65,11 @@
   (add-hook 'typescript-mode-hook 'programming-customization))
 (use-package ps-mode
   :config
-  (add-hook 'ps-mode-hook 'programming-customization))
+  (add-hook 'ps-mode-hook 'programming-customization)
+  (setq-default ledger-binary-path "@ledger@/bin/ledger"))
+(use-package terraform-mode
+  :config
+  (add-hook 'terraform-mode-hook 'programming-customization))
 
 (use-package markdown-mode
   :config

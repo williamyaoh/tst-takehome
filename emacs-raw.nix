@@ -11,7 +11,7 @@ emacsWithPackages (epkgs: with epkgs; [
   # our Emacs packages are coming from.
 
   use-package  # incredibly important for configuration
-  
+
   # Language support
   haskell-mode
   purescript-mode
@@ -20,6 +20,8 @@ emacsWithPackages (epkgs: with epkgs; [
   erlangMode
   rust-mode
   typescript-mode
+  terraform-mode
+  ledger-mode
   markdown-mode
   yaml-mode
 

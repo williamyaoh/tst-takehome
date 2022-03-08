@@ -20,6 +20,7 @@ stdenv.mkDerivation {
     done
 
     substituteInPlace packages.el \
+      --subst-var-by ledger ${pkgs.ledger} \
       --subst-var-by sbcl ${pkgs.sbcl} \
       --subst-var-by git ${pkgs.git}
   '';
