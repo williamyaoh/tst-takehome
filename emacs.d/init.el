@@ -32,9 +32,10 @@
 (setq custom-file "@out@/customize.el")
 (load custom-file)
 
-;; Disabled for now, since we don't know the best way to package fonts
-;; with this Emacs installation...
-;; (load-library "@out@/font.el")
+;;;; We're enabling this, but it's annoying that unfortunately we
+;;;; can't easily package fonts with the Emacs Nix build. You'll need to
+;;;; ensure that you install Fira Code.
+(load-library "@out@/font.el")
 
 ;;;; General configuration
 (menu-bar-mode -1)

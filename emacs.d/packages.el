@@ -82,6 +82,10 @@
 (use-package ledger-mode
   :mode "ledger.dat")
 
+(use-package ligature
+  :config
+  (global-ligature-mode 't))
+
 (use-package highlight-indentation
   :config
   (advice-add 'programming-customization

@@ -13,9 +13,9 @@ in the list of Emacs packages in the REPL:
 
   > sources = import ./nix/sources.nix {}
   > pkgs = import sources.nixpkgs {}
-  > pkgs.emacs27Packages  # or whatever version you have
+  > pkgs.emacs28Packages  # or whatever version you have
   > builtins.filter (name: name == "purescript-mode")
-  >   (builtins.attrNames pkgs.emacs27Packages)
+  >   (builtins.attrNames pkgs.emacs28Packages)
 
 You may need to then add some configuration for your package in `emacs.d/'.
 

@@ -1,5 +1,5 @@
 let
-  version = "0.1.2";
+  version = "0.2.0";
 
   sources = import ./nix/sources.nix {};
 
@@ -10,8 +10,11 @@ in
 with gitignore-src;
 
 rec {
+  # Provided for ease of debugging.
+  inherit nixpkgs;
+
   emacs-raw = import ./emacs-raw.nix {
-    emacsWithPackages = nixpkgs.emacs26WithPackages;
+    emacsWithPackages = nixpkgs.emacs28WithPackages;
   };
 
   emacs-config = import ./emacs-config.nix {

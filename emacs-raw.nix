@@ -17,7 +17,7 @@ emacsWithPackages (epkgs: with epkgs; [
   purescript-mode
   nix-mode
   elixir-mode
-  erlangMode
+  erlang
   rust-mode
   typescript-mode
   terraform-mode
@@ -44,4 +44,5 @@ emacsWithPackages (epkgs: with epkgs; [
   # Theming
   github-modern-theme
   powerline
+  ligature
 ])
