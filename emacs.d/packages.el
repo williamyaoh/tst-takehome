@@ -107,7 +107,9 @@
 
 (use-package undo-tree
   :config
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode 1)
+  (setq undo-tree-auto-save-history nil)
+  (setq undo-tree-visualizer-diff 't))
 
 (use-package recentf
   :config
