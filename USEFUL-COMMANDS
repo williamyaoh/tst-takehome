@@ -20,6 +20,10 @@ sort-fields
 sort-numeric-fields
 sort-regexp-fields
 reverse-region
+avy-transpose-lines-in-region
+  ;; Fine-grained control over the line movement. First keystroke
+  ;; chooses line to move, second chooses where to move it. Seems
+  ;; useful for import/export lists.
 
 tabify
 untabify

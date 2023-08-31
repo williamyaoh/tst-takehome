@@ -60,4 +60,5 @@
    ("C-x C-/" . undo-tree-redo)))
 (use-package avy
   :bind
-  ("C-," . avy-goto-char-timer))
+  ("C-," . avy-goto-char-2)
+  ("C-;" . avy-goto-line))

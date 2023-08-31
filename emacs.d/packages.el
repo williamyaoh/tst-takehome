@@ -199,7 +199,8 @@
 
 (use-package avy
   :config
-  (setq-default avy-timeout-seconds 0.25))
+  (setq-default avy-timeout-seconds 0.25)
+  (setq-default avy-single-candidate-jump nil))
 
 (use-package erc
   :config
