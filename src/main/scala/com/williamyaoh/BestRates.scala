@@ -10,6 +10,11 @@ object BestRates {
 
   import BestRates._
 
+  /**
+   * For each (Group, CabinType) tuple, find the lowest price ticket that the
+   * group can take of that type of cabin. A rate group can take any ticket matching
+   * one of its associated rate codes.
+   */
   def getBestGroupPrices(rates: Seq[Rate], prices: Seq[CabinPrice]): Seq[BestGroupPrice] =
     val cabinCodes = prices.map(_.cabinCode).to(Set)
     val rateGroups: Map[String, Set[String]] = rates
