@@ -4,9 +4,6 @@ import cats.syntax.traverse._
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalatest.Inspectors
 
-// TODO add a unit test of no notcombinablewith at all, should just return
-// a single combo
-
 class PromotionsSpec extends BaseSpec {
   import Promotions.{Promotion, PromotionCombo}
 
@@ -68,6 +65,19 @@ class PromotionsSpec extends BaseSpec {
           PromotionCombo(Seq("P3", "P2")),
           PromotionCombo(Seq("P3", "P4", "P5")),
         )
+      ))
+    }
+
+    it("returns the right combos when all promos are combinable") {
+      val output = Promotions.allCombinablePromotions(Seq(
+        Promotion("P1", Seq()),
+        Promotion("P2", Seq()),
+        Promotion("P3", Seq()),
+        Promotion("P4", Seq()),
+      ))
+      assert(Promotions.areSameCombos(
+        output,
+        Seq(PromotionCombo(Seq("P1", "P2", "P3", "P4")))
       ))
     }
 
