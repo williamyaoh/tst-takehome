@@ -3,7 +3,10 @@ package com.williamyaoh
 object BestRates {
   case class Rate(rateCode: String, rateGroup: String)
   case class CabinPrice(cabinCode: String, rateCode: String, price: BigDecimal)
-  case class BestGroupPrice(cabinCode: String, rateCode: String, price: BigDecimal, rateGroup: String)
+  case class BestGroupPrice(cabinCode: String, rateCode: String, price: BigDecimal, rateGroup: String) {
+    def toCabinPrice: CabinPrice =
+      CabinPrice(cabinCode, rateCode, price)
+  }
 
   import BestRates._
 

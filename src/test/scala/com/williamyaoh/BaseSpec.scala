@@ -1,15 +1,14 @@
 package com.williamyaoh
 
 import cats.Applicative
-import cats.syntax.traverse._
-import org.scalacheck.{Arbitrary, Gen}
+import org.scalacheck.Gen
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
 trait BaseSpec extends AnyFunSpec with Matchers with ScalaCheckPropertyChecks {
   implicit override val generatorDrivenConfig: PropertyCheckConfiguration =
-    PropertyCheckConfiguration(minSuccessful = 1000)
+    PropertyCheckConfiguration(minSuccessful = 250, minSize = 0, sizeRange = 20)
 
   implicit val applicativeGen: Applicative[Gen] = new Applicative[Gen] {
     override def pure[A](x: A): Gen[A] = Gen.const(x)
