@@ -23,6 +23,11 @@ object Promotions {
    *   combo {X1} is maximal.
    *
    * The base cases are maximal and correct by inspection. For the recursive case,
+   * we know that all returned combos are maximal, since we've added as many promos
+   * as we can to the results of the recursive call. The combos that had X1 added to
+   * them are all distinct, since they were distinct before having X1 added. We know
+   * that the combos with X1 added are distinct from the combos without X1, since...
+   * the former have X1 in them and the latter do not.
    */
   def allCombinablePromotions(allPromotions: Seq[Promotion]): Seq[PromotionCombo] =
     ???
