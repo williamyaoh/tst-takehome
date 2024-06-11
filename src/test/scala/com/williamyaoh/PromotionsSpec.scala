@@ -81,6 +81,15 @@ class PromotionsSpec extends BaseSpec {
       ))
     }
 
+    // It's unclear whether this behavior is allowed or not, but I'll make
+    // the decision that it is.
+    it("returns no combos when a promo cannot be combined with itself") {
+      val output = Promotions.allCombinablePromotions(Seq(
+        Promotion("P1", Seq("P1")),
+      ))
+      assert(output.isEmpty)
+    }
+
     it("combos returned by combinablePromotions are always valid") {
       forAll("promotions") { (promos: Seq[Promotion]) =>
         if promos.isEmpty then 
