@@ -3,10 +3,10 @@ ThisBuild / version      := "0.1.0-SNAPSHOT"
 ThisBuild / organization := "com.williamyaoh"
 ThisBuild / organizationName := "com.williamyaoh"
 
-lazy val tst = project
+lazy val `tst-takehome` = project
   .in(file("."))
   .settings(
-    name := "tst",
+    name := "tst-takehome",
     scalacOptions ++= Seq(
       "-release",
       "17",
