@@ -4,3 +4,6 @@ Unlike a normal Emacs installation, which reads configuration from
 `$HOME/.emacs.d', this setup is completely self-contained; running the
 executable produced by the Nix derivation is the only thing needed to
 be set up with all the configuration I use.
+
+> nix-build -A emacs .
+> nix-env -iA emacs -f .
