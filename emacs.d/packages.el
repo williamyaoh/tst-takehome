@@ -34,7 +34,8 @@
   (setq-default c-basic-offset 4)
   (setq-default c-default-style "linux")
   (add-hook 'c-mode-hook 'programming-customization)
-  (add-hook 'c++-mode-hook 'programming-customization))
+  (add-hook 'c++-mode-hook 'programming-customization)
+  (add-hook 'java-mode-hook (lambda () (setq c-basic-offset 2))))
 (use-package slime
   :config
   (setq-default inferior-lisp-program "@sbcl@/bin/sbcl")
