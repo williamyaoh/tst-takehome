@@ -19,6 +19,7 @@ emacsWithPackages (epkgs: with epkgs; [
   elixir-mode
   erlang
   rust-mode
+  scala-mode
   typescript-mode
   terraform-mode
   ledger-mode
