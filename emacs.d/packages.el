@@ -61,7 +61,9 @@
          :map slime-mode-map
          ("C-c M-t" . slime-trace-dialog-toggle-trace)
          ("C-c T" . slime-trace-dialog)))
-(use-package scala-mode)
+(use-package scala-mode
+  :hook
+  (scala-mode . programming-customization))
 (use-package lsp-metals
   :ensure t
   :init
