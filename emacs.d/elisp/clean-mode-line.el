@@ -23,6 +23,8 @@
     (beacon-mode . "")
     (undo-tree-mode . "")
     (which-key-mode . "")
+    (lsp-mode . "")
+    (lsp-lens-mode . "")
     ;; Major modes
     (fundamental-mode . "txt")
     (text-mode . "txt")

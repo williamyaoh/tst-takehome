@@ -11,6 +11,8 @@ helm-projectile-find-file       C-x M-f
 helm-projectile-rg              C-x M-s
 helm-projectile-switch-project  C-x M-p
 
+lsp
+
 shell-command                   M-!
 async-shell-command             M-&
 shell-command-on-region         M-|

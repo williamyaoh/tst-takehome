@@ -70,8 +70,7 @@
   (setq lsp-metals-java-home "@jre@")
   (setq lsp-metals-sbt-script "@sbt@/bin/sbt")
   :custom
-  (lsp-metals-enable-semantic-highlighting t)
-  :hook (scala-mode . lsp))
+  (lsp-metals-enable-semantic-highlighting t))
 (use-package typescript-mode
   :config
   (add-hook 'typescript-mode-hook 'programming-customization))
@@ -130,7 +129,9 @@
    ("C-x M-p" . helm-projectile-switch-project)
    ("C-x M-s" . helm-projectile-rg)))
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :config
+  (setq lsp-enable-suggest-server-download nil))
 
 (use-package highlight-indentation
   :config
