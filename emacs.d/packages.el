@@ -74,9 +74,15 @@
   :custom
   (lsp-metals-enable-semantic-highlighting t)
   :hook
-  ;; Metals must be started manually first, with M-x lsp.
-  ;; This is so that we don't have to do that in any other files we open.
-  (scala-mode . (lambda () (when (lsp-find-workspace 'metals) (lsp)))))
+  (scala-mode . (lambda ()
+                  ;; Run scalafmt on save, but only if Metals is running.
+                  (add-hook 'before-save-hook
+                            (lambda ()
+                              (when (lsp-find-workspace 'metals)
+                                (lsp-format-buffer))))
+                  ;; Metals must be started manually first, with M-x lsp.
+                  ;; This is so that we don't have to do that in any other files we open.
+                  (when (lsp-find-workspace 'metals) (lsp)))))
 (use-package typescript-mode
   :config
   (add-hook 'typescript-mode-hook 'programming-customization))
@@ -149,7 +155,13 @@
 (use-package lsp-mode
   :config
   (setq lsp-enable-suggest-server-download nil))
-(use-package lsp-ui)
+(use-package lsp-ui
+  :bind
+  (:map lsp-mode-map
+        (("M-." . lsp-ui-peek-find-definitions)
+         ("M-/" . lsp-ui-peek-find-references)
+         ("M-;" . lsp-ui-doc-glance)
+         ("M-'" . lsp-ui-peek-find-implementation))))
 
 (use-package highlight-indentation
   :config

@@ -13,7 +13,7 @@
   "Called when entering a programming mode. General programming packages
    should add advice after this function. Programming modes should add this
    as a hook alongside whatever other hooks they need to run."
-  (add-to-list 'write-file-functions 'delete-trailing-whitespace))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 (defun lisp-customization ()
   "Called when entering a Lisp mode. Lisp packages should add advice
    after this function.")
