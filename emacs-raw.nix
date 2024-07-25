@@ -50,7 +50,8 @@ emacsWithPackages (epkgs: with epkgs; [
   helm-projectile
   lsp-mode
   lsp-ui
-  company
+  company       # autocompletion
+  flycheck      # highlighting of errors
 
   # Theming
   github-modern-theme

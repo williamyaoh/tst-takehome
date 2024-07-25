@@ -140,6 +140,9 @@
               (company-mode 1)))
   :bind
   (("C-x M-SPC" . company-complete)))
+(use-package flycheck
+  :hook
+  (lsp-mode . flycheck-mode))
 
 (use-package lsp-mode
   :config
