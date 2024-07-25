@@ -18,6 +18,8 @@
   "Called when entering a Lisp mode. Lisp packages should add advice
    after this function.")
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;;;; Package configuration
 (load-library "@out@/packages.el")
 
@@ -49,8 +51,6 @@
 
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-message t)
-
-(fset 'yes-or-no-p 'y-or-n-p)
 
 (setq confirm-nonexistant-file-or-buffer nil)
 

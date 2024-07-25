@@ -14,7 +14,7 @@
     (hi-lock-mode . "")
     (hs-minor-mode . "")
     (rainbow-mode . "")
-    (company-mode . " cmpl")
+    (company-mode . "")
     (page-break-lines-mode . "")
     (subword-mode . "")
     (highlight-indentation-mode . "")

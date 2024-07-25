@@ -70,7 +70,11 @@
   (setq lsp-metals-java-home "@jre@")
   (setq lsp-metals-sbt-script "@sbt@/bin/sbt")
   :custom
-  (lsp-metals-enable-semantic-highlighting t))
+  (lsp-metals-enable-semantic-highlighting t)
+  :hook
+  ;; Metals must be started manually first, with M-x lsp.
+  ;; This is so that we don't have to do that in any other files we open.
+  (scala-mode . (lambda () (when (lsp-find-workspace 'metals) (lsp)))))
 (use-package typescript-mode
   :config
   (add-hook 'typescript-mode-hook 'programming-customization))
@@ -128,6 +132,14 @@
   (("C-x M-f" . helm-projectile-find-file)
    ("C-x M-p" . helm-projectile-switch-project)
    ("C-x M-s" . helm-projectile-rg)))
+(use-package company
+  :config
+  (setq company-idle-delay nil)
+  (add-hook 'lsp-mode-hook
+            (lambda ()
+              (company-mode 1)))
+  :bind
+  (("C-x M-SPC" . company-complete)))
 
 (use-package lsp-mode
   :config
