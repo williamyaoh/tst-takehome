@@ -7,6 +7,10 @@ Name                            Default binding
 repeat-complex-command          C-x M-ESC || C-x ESC ESC
 repeat                          C-x z
 
+helm-projectile-find-file       C-x M-f
+helm-projectile-rg              C-x M-s
+helm-projectile-switch-project  C-x M-p
+
 shell-command                   M-!
 async-shell-command             M-&
 shell-command-on-region         M-|
