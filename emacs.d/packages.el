@@ -95,6 +95,8 @@
 (use-package helm
   :config
   (helm-mode 1)
+  (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
+  (add-to-list 'helm-completing-read-handlers-alist '(switch-to-buffer . ido))
   :bind
   (("M-x" . helm-M-x)))
 (use-package helm-rg
