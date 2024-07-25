@@ -88,6 +88,32 @@
   :config
   (global-ligature-mode 't))
 
+(use-package which-key
+  :config
+  (which-key-mode 1))
+
+(use-package helm
+  :config
+  (helm-mode 1)
+  :bind
+  (("M-x" . helm-M-x)))
+(use-package helm-rg
+  :config
+  (setq helm-rg-git-executable "@git@/bin/git")
+  (setq helm-rg-ripgrep-executable "@rg@/bin/rg"))
+(use-package projectile
+  :config
+  (projectile-mode 1)
+  (setq projectile-git-command "@git@/bin/git ls-files -zco --exclude-standard")
+  (setq projectile-git-ignored-command "@git@/bin/git ls-files -zcoi --exclude-standard")
+  (setq projectile-git-submodule-command "@git@/bin/git submodule --quiet foreach 'echo $displaypath' | tr '\\n' '\\0'")
+  (setq exec-path (cons "@rg@/bin" exec-path)))
+(use-package helm-projectile
+  :bind
+  (("C-x M-f" . helm-projectile-find-file)
+   ("C-x M-p" . helm-projectile-switch-project)
+   ("C-x M-s" . helm-projectile-rg)))
+
 (use-package highlight-indentation
   :config
   (advice-add 'programming-customization
@@ -97,9 +123,9 @@
 
 (use-package ido
   :config
-  (ido-mode 1)
+  ;; (ido-mode 1)
   (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
+  ;; (setq ido-everywhere t)
   (setq ido-create-new-buffer 'always))
 
 (use-package smex

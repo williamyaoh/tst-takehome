@@ -22,7 +22,8 @@ stdenv.mkDerivation {
     substituteInPlace packages.el \
       --subst-var-by ledger ${pkgs.ledger} \
       --subst-var-by sbcl ${pkgs.sbcl} \
-      --subst-var-by git ${pkgs.git}
+      --subst-var-by git ${pkgs.git} \
+      --subst-var-by rg ${pkgs.ripgrep}
   '';
 
   installPhase = ''

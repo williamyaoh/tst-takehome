@@ -41,6 +41,11 @@ emacsWithPackages (epkgs: with epkgs; [
   undo-tree
   fill-column-indicator
   highlight-indentation
+  which-key     # automatically show possible followup keys
+  helm
+  helm-rg
+  projectile    # project management stuff
+  helm-projectile
 
   # Theming
   github-modern-theme

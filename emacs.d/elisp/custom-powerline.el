@@ -45,7 +45,7 @@ is non-NIL.")
               "…")
     (buffer-name)))
 
-(defpowerline powerline-buffer-status 
+(defpowerline powerline-buffer-status
   (cond
    ((and buffer-file-name (buffer-modified-p)) "-MODIFIED-")
    (buffer-read-only "Read-Only")
@@ -57,11 +57,7 @@ is non-NIL.")
                   (format-mode-line which-func-current))
           "]"))
 
-(defpowerline powerline-projectile
-  (let ((project-name (projectile-project-name)))
-    (if (not (string-equal project-name "-"))
-        (format "[project %s]" project-name)
-      "")))
+(defpowerline powerline-projectile "")
 
 (defpowerline powerline-maybe-absolute-line-number
   (if (and powerline-use-absolute-line-number (buffer-narrowed-p))

@@ -5,9 +5,9 @@
     (auto-complete-mode . " α")
     (yas/minor-mode . "")
     (yas-minor-mode . "")
-    (paredit-mode . " ()")
-    (lispy-mode . " ()")
-    (paredit-algol-like-mode . " {}")
+    (paredit-mode . "")
+    (lispy-mode . "")
+    (paredit-algol-like-mode . "")
     (eldoc-mode . "")
     (abbrev-mode . "")
     (drag-stuff-mode . "")
@@ -22,7 +22,11 @@
     (auto-revert-mode . "")
     (beacon-mode . "")
     (undo-tree-mode . "")
+    (which-key-mode . "")
     ;; Major modes
+    (fundamental-mode . "txt")
+    (text-mode . "txt")
+    (markdown-mode . "md")
     (lisp-interaction-mode . "λ")
     (haskell-mode . "λ")
     (purescript-mode . "λ")
@@ -31,7 +35,8 @@
     (python-mode . "Py")
     (emacs-lisp-mode . "Eλ")
     (lisp-mode . "λ")
-    (nxhtml-mode . "nx"))
+    (nxhtml-mode . "nx")
+    (scala-mode . "ミ"))
   "Alist for `clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
