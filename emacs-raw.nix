@@ -20,6 +20,7 @@ emacsWithPackages (epkgs: with epkgs; [
   erlang
   rust-mode
   scala-mode
+  lsp-metals
   typescript-mode
   terraform-mode
   ledger-mode
@@ -44,8 +45,10 @@ emacsWithPackages (epkgs: with epkgs; [
   which-key     # automatically show possible followup keys
   helm
   helm-rg
+  helm-lsp
   projectile    # project management stuff
   helm-projectile
+  lsp-mode
 
   # Theming
   github-modern-theme

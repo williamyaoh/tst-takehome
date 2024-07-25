@@ -3,6 +3,12 @@
 
 { pkgs, version, gitignoreSource }:
 
+let
+  jre = pkgs.openjdk11;
+  sbt = pkgs.sbt.override (prev: prev // { inherit jre; });
+  metals = pkgs.metals.override (prev: prev // { inherit jre; });
+in
+
 with pkgs;
 
 stdenv.mkDerivation {
@@ -23,7 +29,10 @@ stdenv.mkDerivation {
       --subst-var-by ledger ${pkgs.ledger} \
       --subst-var-by sbcl ${pkgs.sbcl} \
       --subst-var-by git ${pkgs.git} \
-      --subst-var-by rg ${pkgs.ripgrep}
+      --subst-var-by rg ${pkgs.ripgrep} \
+      --subst-var-by jre ${jre} \
+      --subst-var-by sbt ${sbt} \
+      --subst-var-by metals ${metals}
   '';
 
   installPhase = ''

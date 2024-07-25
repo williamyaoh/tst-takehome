@@ -62,6 +62,16 @@
          ("C-c M-t" . slime-trace-dialog-toggle-trace)
          ("C-c T" . slime-trace-dialog)))
 (use-package scala-mode)
+(use-package lsp-metals
+  :ensure t
+  :init
+  (setq lsp-metals-server-command "@metals@/bin/metals")
+  :config
+  (setq lsp-metals-java-home "@jre@")
+  (setq lsp-metals-sbt-script "@sbt@/bin/sbt")
+  :custom
+  (lsp-metals-enable-semantic-highlighting t)
+  :hook (scala-mode . lsp))
 (use-package typescript-mode
   :config
   (add-hook 'typescript-mode-hook 'programming-customization))
@@ -103,6 +113,9 @@
   :config
   (setq helm-rg-git-executable "@git@/bin/git")
   (setq helm-rg-ripgrep-executable "@rg@/bin/rg"))
+(use-package helm-lsp
+  :bind
+  (("C-x M-t" . helm-lsp-workspace-symbol)))
 (use-package projectile
   :config
   (projectile-mode 1)
@@ -115,6 +128,8 @@
   (("C-x M-f" . helm-projectile-find-file)
    ("C-x M-p" . helm-projectile-switch-project)
    ("C-x M-s" . helm-projectile-rg)))
+
+(use-package lsp-mode)
 
 (use-package highlight-indentation
   :config
