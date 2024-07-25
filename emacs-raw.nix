@@ -49,6 +49,7 @@ emacsWithPackages (epkgs: with epkgs; [
   projectile    # project management stuff
   helm-projectile
   lsp-mode
+  lsp-ui
   company
 
   # Theming

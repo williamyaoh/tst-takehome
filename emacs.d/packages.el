@@ -144,6 +144,7 @@
 (use-package lsp-mode
   :config
   (setq lsp-enable-suggest-server-download nil))
+(use-package lsp-ui)
 
 (use-package highlight-indentation
   :config
