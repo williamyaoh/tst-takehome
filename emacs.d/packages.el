@@ -115,13 +115,30 @@
 
 (use-package helm
   :config
-  (helm-mode 1)
-  (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
-  (add-to-list 'helm-completing-read-handlers-alist '(switch-to-buffer . ido))
-  (add-to-list 'helm-completing-read-handlers-alist '(kill-buffer . ido))
-  (add-to-list 'helm-completing-read-handlers-alist '(eval-expression . nil))
+  (defun execute-with-helm (command)
+    (if helm-mode
+        (call-interactively command))
+    (progn
+      (helm-mode 1)
+      ;; We call `unwind-protect' to ensure that `helm-mode' is
+      ;; disabled even though `command' doesn't complete normally.
+      ;;
+      ;; Without `unwind-protect', if the user presses =C-g= while
+      ;; `command' is being executed, then the entire function would
+      ;; be exited and therefore, `helm-mode' wouldn't be disabled'
+      (unwind-protect (call-interactively command)
+        (helm-mode -1))))
+  (defun helm-describe-function ()
+    (interactive)
+    (execute-with-helm 'describe-function))
+  (defun helm-describe-variable ()
+    (interactive)
+    (execute-with-helm 'describe-variable))
+  (setq helm-move-to-line-cycle-in-source nil)
   :bind
-  (("M-x" . helm-M-x)))
+  (("M-x" . helm-M-x)
+   ("C-h f" . helm-describe-function)
+   ("C-h v" . helm-describe-variable)))
 (use-package helm-rg
   :config
   (setq helm-rg-git-executable "@git@/bin/git")
@@ -173,6 +190,7 @@
 
 (use-package ido
   :config
+  (ido-everywhere 1)
   (setq ido-enable-flex-matching t)
   (setq ido-create-new-buffer 'always))
 
